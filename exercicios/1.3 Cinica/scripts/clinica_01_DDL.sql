@@ -1,0 +1,56 @@
+CREATE DATABASE Clinica;
+
+USE Clinica;
+
+CREATE TABLE dono
+(
+	idDono		INT PRIMARY KEY IDENTITY,
+	nome		VARCHAR(150) NOT NULL,
+);
+
+CREATE TABLE tipoPet
+(
+	idTipo		INT PRIMARY KEY IDENTITY,
+	tipo		VARCHAR(150) NOT NULL,
+);
+
+CREATE TABLE raca
+(
+	idRaca		INT PRIMARY KEY IDENTITY,
+	idTipo		INT FOREIGN KEY REFERENCES tipoPet (idTipo),
+	raca		VARCHAR(150)
+);
+
+CREATE TABLE pet
+(
+	idPet				INT PRIMARY KEY IDENTITY,
+	idDono				INT FOREIGN KEY REFERENCES dono (idDono),
+	idRaca				INT FOREIGN KEY REFERENCES raca (idRaca),
+	nome				VARCHAR(150) NOT NULL,
+	dataNascimento		DATE NOT NULL
+);
+
+CREATE TABLE clinica
+(
+	idClinica	INT PRIMARY KEY IDENTITY,
+	nome		VARCHAR(150) NOT NULL,
+	endereco	VARCHAR(250) NOT NULL
+);
+
+CREATE TABLE vet
+(
+	idVet			INT PRIMARY KEY IDENTITY,
+	idClinica		INT FOREIGN KEY REFERENCES clinica (idClinica),
+	nome			VARCHAR(150) NOT NULL,
+	crmv			VARCHAR (9) UNIQUE NOT NULL
+);
+
+CREATE TABLE consulta
+(
+	idConsulta		INT PRIMARY KEY IDENTITY,
+	idVet			INT FOREIGN KEY REFERENCES vet (idVet),
+	idPet			INT FOREIGN KEY REFERENCES pet (idPet),
+	valor			MONEY NOT NULL,
+	dataConsulta	DATE NOT NULL,
+	descricao		VARCHAR(300) NOT NULL
+);
