@@ -16,7 +16,8 @@ create table Genero
 
 create table Filme
 (
-	idFilme			int primary key,
+	idFilme			int primary key identity,
 	codGenero		int foreign key references Genero (idGenero),
 	Titulo			varchar(250) not null
 );
+
