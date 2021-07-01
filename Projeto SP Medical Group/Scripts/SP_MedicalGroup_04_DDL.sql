@@ -83,7 +83,8 @@ CREATE TABLE consulta
 	idConsulta			INT PRIMARY KEY IDENTITY
 	,idPaciente			INT FOREIGN KEY	REFERENCES paciente (idPaciente)
 	,idMedico			INT FOREIGN KEY REFERENCES medico	(idMedico)
+	,statusConsulta		BIT DEFAULT (1)
+	,descricao		VARCHAR(255)
 	,dataHoraConsulta	DATETIME			 NOT NULL
-	,statusConsulta		INT FOREIGN KEY REFERENCES statusConsulta (idStatus)
 );
 GO

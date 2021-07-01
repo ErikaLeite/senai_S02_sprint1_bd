@@ -67,13 +67,13 @@ VALUES						('Agendada'),
 							('Cancelada');
 GO
 
-INSERT INTO consulta (idPaciente, idMedico, idStatus, dataHoraConsulta)
-VALUES (7, 3, 2, '20/01/2020  15:00'),
-	   (2, 2, 3, '06/01/2020  10:00'),
-	   (3, 2, 2, '07/02/2020  11:00'),
-	   (2, 2, 2, '06/02/2018  10:00'),
-	   (4, 1, 3, '07/02/2019  11:00'),
-	   (7, 3, 1, '08/03/2020  15:00'),
-	   (4, 1, 1, '09/03/2020  11:00');
+INSERT INTO consulta (idPaciente, idMedico, statusConsulta, descricao,dataHoraConsulta)
+VALUES     (7, 3, 1, 'lorem','20/01/2020  15:00'),
+	   (2, 2, 1, 'lorem', '06/01/2020  10:00'),
+	   (3, 2, 1, 'ipsum', '07/02/2020  11:00'),
+	   (2, 2, 1, 'desc', '06/02/2018  10:00'),
+	   (4, 1, 1, 'test', '07/02/2019  11:00'),
+	   (7, 3, 1, 'lorem', '08/03/2020  15:00'),
+	   (4, 1, 1, 'ipsum', '09/03/2020  11:00');
 GO
 
